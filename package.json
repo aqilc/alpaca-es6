@@ -30,5 +30,8 @@
     "type": "git",
     "url": "https://github.com/AqilCont/alpaca-es6"
   },
-  "keywords": ["alpaca", "api", "es6"]
+  "keywords": ["alpaca", "api", "es6"],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
