@@ -14,8 +14,7 @@
     "node": ">=14.3.0"
   },
   "contributors": [
-    "@AqilCont",
-    "@117"
+    "master-chief"
   ],
   "devDependencies": {
     "@types/ws": "^7.2.6",
@@ -30,8 +29,5 @@
     "type": "git",
     "url": "https://github.com/AqilCont/alpaca-es6"
   },
-  "keywords": ["alpaca", "api", "es6"],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  }
+  "keywords": ["alpaca", "api", "es6"]
 }

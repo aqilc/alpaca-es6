@@ -1,12 +1,12 @@
 
-# alpaca-trade-api-ts
+# alpaca-api
 
 A TypeScript Node.js library for the <https://alpaca.markets> REST API and
 WebSocket streams.
 
 **Table of Contents:**
 
-- [alpaca-trade-api-ts](#alpaca-trade-api-ts)
+- [alpaca-api](#alpaca-api)
   - [TODO](#todo)
   - [Quick tips](#quick-tips)
   - [Installation](#installation)
