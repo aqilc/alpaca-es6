@@ -150,7 +150,7 @@ An API key is allowed 1 simultaneous connection to each server. Connecting to th
 
 ```ts
 // Imports the Alpaca websocket stream API
-import { Stream, urls: { market } } } from 'alpaca-api';
+import { Stream, urls: { market } } from 'alpaca-api';
 
 // Creates a websocket stream
 const stream = new Stream(client, market).connect();
