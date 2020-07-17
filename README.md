@@ -1,8 +1,7 @@
 
 # alpaca-api
 
-A TypeScript Node.js library for the <https://alpaca.markets> REST API and
-WebSocket streams.
+A modern rewrite of the official Alpaca JavaScript Library.
 
 **Table of Contents:**
 
@@ -14,11 +13,16 @@ WebSocket streams.
     - [`Client` Initialization](#client-initialization)
     - [`Client` Properties](#client-properties)
       - [`authenticated` => `Promise<boolean>`](#authenticated--promiseboolean)
-      - [`orders` => `new Orders(this, this.cache)`](#orders--new-ordersthis-thiscache)
+      - [`orders` => `Orders`](#orders--orders)
     - [`Client` Methods](#client-methods)
       - [`info()`](#info)
   - [`alpaca.Stream`](#alpacastream)
     - [Initialization](#initialization)
+    - [`Stream` Methods](#stream-methods)
+      - [`Stream.send(message)`](#streamsendmessage)
+      - [`Stream.subscribe(stream)`](#streamsubscribestream)
+      - [`Stream.unsubscribe(stream)`](#streamunsubscribestream)
+      - [`Stream.connect()`](#streamconnect)
     - [`Stream` Events](#stream-events)
       - [Event `"message"`](#event-message)
       - [Event `"authentication"`](#event-authentication)
@@ -67,13 +71,15 @@ console.log("i think it works");
 
 ## Installation
 
+> Note: Node.js 14 required. I would recommend installing something like nvm(**n**ode **v**ersion **m**anager) to keep your node.js installation up-to-date.
+
 ```cmd
 > npm i alpaca-api
 ```
 
 ## `alpaca.Client`
 
-A client for handling all account based requests.
+A client for handling all account based requests. Basically, the only useful thing to you, the consumer.
 
 ### `Client` Initialization
 
@@ -103,6 +109,8 @@ client.
 
 ### `Client` Properties
 
+Things you can directly access from a `Client` instance.
+
 #### `authenticated` => `Promise<boolean>`
 
 Checks if the client is authenticated.
@@ -118,9 +126,9 @@ if(await client.authenticated) {
 ...
 ```
 
-#### `orders` => `new Orders(this, this.cache)`
+#### `orders` => `Orders`
 
-Orders class instance assigned to the current client.
+Orders class instance assigned to the current client. Holds the cache and other things.
 
 ```typescript
 await client.orders.get('6187635d-04e5-485b-8a94-7ce398b2b81c');
@@ -137,8 +145,6 @@ Gets some information about your Alpaca account.
 ```typescript
 await client.info()
 ```
-
-> More examples are coming soon... give me some time or feel free to contribute.
 
 ## `alpaca.Stream`
 
@@ -162,9 +168,64 @@ stream.subscribe(['T.SPY']);
 stream.on("message", trade => console.log(trade));
 ```
 
+### `Stream` Methods
+
+Functions assigned to the `Stream` instance.
+
+#### `Stream.send(message)`
+
+> You will probably never use this, and please don't try to unless you know what you are doing. This is mostly used internally in alpaca.
+
+- `message`: `<any>` The message to send
+- Returns: The `Stream` instance
+
+Sends a message to the websocket host.
+
+```js
+stream.send({ lmao: "i can put anything here!" })
+```
+
+#### `Stream.subscribe(stream)`
+
+- `stream`: `<string | string[]>` Name of the stream you want to subscribe to
+- **Returns:** The `Stream` instance(making it chainable)
+
+Subscribes to an alpaca stream on the current connected websocket.
+
+```js
+stream.subscribe("T.AAPL");
+
+// You can also do multiple
+stream.subscribe(["T.AAPL", "T.SPY", "AM.AAPL"]);
+```
+
+#### `Stream.unsubscribe(stream)`
+
+- `stream`: `<string | string[]>` Name of the stream you want to unsubscribe from.
+- **Returns:** The `Stream` instance(making it chainable).
+
+Unsubscribes to an already-subscribed stream.
+
+```js
+stream.unsubscribe("T.AAPL");
+
+// You can also do multiple
+stream.unsubscribe(["T.AAPL", "T.SPY", "AM.AAPL"]);
+```
+
+#### `Stream.connect()`
+
+- **Returns:** The `Stream` instance(making it chainable)
+
+Connects to the websocket, if you didn't enable "auto" in the options.
+
+```js
+stream.connect().subscribe("account_updates");
+```
+
 ### `Stream` Events
 
-All stream events, able to be listened to by `Stream.on("eventname", data => /* do something with "data" here */)`
+All stream events, able to be listened to by `Stream.on("event-name", data => /* do something with "data" here */)`
 
 #### Event `"message"`
 
