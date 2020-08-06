@@ -276,9 +276,7 @@ Basically contains all links related to your account
 **Properties:**
 
 - `urls.account.rest`: Rest API base URL
-  - `urls.account.rest.paper`: Relinked to `urls.account.paper.rest` for convenience
 - `urls.account.stream`: WebSocket host URL
-  - `urls.account.stream.paper`: Relinked to `urls.account.paper.stream` for convenience
 - `urls.account.paper`: Paper version of above links
   - `urls.account.paper.rest`: Paper version of the `urls.account.rest` link
   - `urls.account.paper.stream`: Paper version of the `urls.account.stream` link
