@@ -1,6 +1,6 @@
 {
   "name": "alpaca-api",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "An ES6 implementation of the [alpaca](https://alpaca.markets) API.",
   "main": "index.js",
   "author": "AqilCont",
