@@ -44,6 +44,8 @@ A modern rewrite of the official Alpaca JavaScript Library.
 
 ## Quick tips
 
+### Experimental top level await
+
 I would personally use the `--experimental-top-level-await` tag with your node.js 14.3.0+ to allow for stuff like this:
 
 ```js
@@ -68,6 +70,10 @@ console.log("i think it works");
 ```
 
 > returns `oh nu it doesn't work` btw
+
+### Editor
+
+This API was built using an editor like VSC, where you can easily see JSDoc comments and types usage. I would highly recommend this so you can get some quick docs straight in your editor, without looking at the website over and over!
 
 ## Installation
 
@@ -146,9 +152,28 @@ Gets some information about your Alpaca account.
 await client.info()
 ```
 
+#### `portfolio([query])`
+
+Gets your [portfolio history](https://alpaca.markets/docs/api-documentation/api-v2/portfolio-history/) on the Alpaca platform.
+
+```js
+// Just a small example of the parameter types, take a look at the JSDoc in a supported editor like VSC or a look at the link above for more info!
+await client.portfolio({
+  period: "1W", timeframe: "1H", date_end: "2020-10-10", extended_hours: true
+})
+```
+
+#### `assets([opts])`
+
+Gets the assets that are connected to your account. Filtered by the object `opts` provided. [API Reference](https://alpaca.markets/docs/api-documentation/api-v2/assets/).
+
+```js
+await client.assets({ id: "AAPL" });
+```
+
 ## `alpaca.Stream`
 
-An Alpaca websocket API for streamlining the exchange of requests and data to and from the Alpaca servers. We will mostly handle this for you, and I would advise from actually using the `send` method.
+An Alpaca WebSocket API for streamlining the exchange of requests and data to and from the Alpaca servers. We will mostly handle this for you, and I would advise from actually using the `send` method.
 
 ### Initialization
 
