@@ -8,6 +8,8 @@ A modern rewrite of the official Alpaca JavaScript Library.
 - [alpaca-api](#alpaca-api)
   - [TODO](#todo)
   - [Quick tips](#quick-tips)
+    - [Experimental top level await](#experimental-top-level-await)
+    - [Editor](#editor)
   - [Installation](#installation)
   - [`alpaca.Client`](#alpacaclient)
     - [`Client` Initialization](#client-initialization)
@@ -16,6 +18,8 @@ A modern rewrite of the official Alpaca JavaScript Library.
       - [`orders` => `Orders`](#orders--orders)
     - [`Client` Methods](#client-methods)
       - [`info()`](#info)
+      - [`portfolio([query])`](#portfolioquery)
+      - [`assets([opts])`](#assetsopts)
   - [`alpaca.Stream`](#alpacastream)
     - [Initialization](#initialization)
     - [`Stream` Methods](#stream-methods)
@@ -318,3 +322,5 @@ Contains all links related to market data.
 ## Contribute
 
 Pull requests are encouraged. 😁
+
+> Right now, if you could update README and help me style it up, that would be great! I'm currently missing some function documentation and some other stuff, so if you could look through the code and fill some in, it would make my day. I don't have time personally to finish this myself, or I really would. Currently, most of the essentials are implemented but if you find something missing that is present in the Alpaca API, there's a really high chance that it just wasn't documented but JSDOC and other stuff might still exist.

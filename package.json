@@ -1,33 +1,37 @@
 {
-  "name": "alpaca-api",
-  "version": "1.3.0",
-  "description": "An ES6 implementation of the [alpaca](https://alpaca.markets) API.",
-  "main": "index.js",
-  "author": "AqilCont",
-  "license": "MIT",
-  "types": "types/index.d.ts",
-  "type": "module",
-  "dependencies": {
-    "ws": "^7.3.0"
-  },
-  "engines": {
-    "node": ">=14"
-  },
-  "contributors": [
-    "master-chief"
-  ],
-  "devDependencies": {
-    "@types/ws": "^7.2.6",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.4.0"
-  },
-  "bugs": {
-    "email": "aqilcm@gmail.com",
-    "url": "https://github.com/AqilCont/alpaca-es6/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/AqilCont/alpaca-es6"
-  },
-  "keywords": ["alpaca", "api", "es6"]
+    "name": "alpaca-api",
+    "version": "1.3.1",
+    "description": "An ES6 implementation of the [alpaca](https://alpaca.markets) API.",
+    "main": "index.js",
+    "author": "AqilCont",
+    "license": "MIT",
+    "types": "types/index.d.ts",
+    "type": "module",
+    "dependencies": {
+        "ws": "^7.3.0"
+    },
+    "engines": {
+        "node": ">=14"
+    },
+    "contributors": [
+        "master-chief"
+    ],
+    "devDependencies": {
+        "@types/ws": "^7.2.6",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.4.0"
+    },
+    "bugs": {
+        "email": "aqilcm@gmail.com",
+        "url": "https://github.com/AqilCont/alpaca-es6/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AqilCont/alpaca-es6"
+    },
+    "keywords": [
+        "alpaca",
+        "api",
+        "es6"
+    ]
 }
